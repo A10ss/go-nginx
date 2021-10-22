@@ -1,6 +1,8 @@
 package main
 
-import "io/ioutil"
+import (
+	"io/ioutil"
+)
 
 type webPage struct {
 	Uri      string
@@ -14,7 +16,7 @@ func NewWebPage(uri string, httpBody string) *webPage {
 	}
 }
 
-func (this *webPage) ScanUrl() (files []string) {
+func ScanUrl() (files []string) {
 	dir, err := ioutil.ReadDir("./WebApp")
 	if err != nil {
 		return nil
@@ -23,8 +25,4 @@ func (this *webPage) ScanUrl() (files []string) {
 		files = append(files, ele.Name())
 	}
 	return files
-}
-
-func main() {
-
 }
