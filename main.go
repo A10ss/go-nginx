@@ -1,25 +1,20 @@
 package main
 
 import (
+	"github.com/valyala/fasthttp"
 	"log"
-	"net/http"
 )
 
 var (
 	err  error
-	path = "WebApp/my-app"
+	path = "D:/GoWorkSpace/go-nginx/WebApp/my-app"
 )
 
 func main() {
-	mux := http.NewServeMux()
-	mux.Handle("/", http.FileServer(http.Dir(path)))
 
-	server := &http.Server{
-		Addr:    ":8080",
-		Handler: mux,
-	}
+	handler := fasthttp.FSHandler(path, 0)
 
-	err = server.ListenAndServe()
+	err := fasthttp.ListenAndServe(":8081", handler)
 	if err != nil {
 		log.Println(err)
 	}
