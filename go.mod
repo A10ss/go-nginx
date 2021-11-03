@@ -2,10 +2,7 @@ module go-nginx
 
 go 1.17
 
-require (
-	github.com/buaazp/fasthttprouter v0.1.1
-	github.com/valyala/fasthttp v1.31.0
-)
+require github.com/valyala/fasthttp v1.31.0
 
 require (
 	github.com/andybalholm/brotli v1.0.2 // indirect
