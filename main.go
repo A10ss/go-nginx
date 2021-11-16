@@ -7,7 +7,7 @@ import (
 
 var (
 	err  error
-	path = "D:/GoWorkSpace/go-nginx/WebApp/my-app"
+	path = "WebApp/my-app"
 )
 
 func main() {
